@@ -171,11 +171,12 @@
 
   <!-- <script src="./js/utils/config.js"></script>
     <script src="./js/utils/user.js"></script> -->
+  <script src="./js/utils/myuser.js"></script>
 
 
   <script>
     $(function () {
-      $.get('http://localhost:8000/admin/getuser', function (res) {
+      obj.getInfo(function (res) {
         if (res.code == 200) {
           $('#touxiang').attr('src', res.data.user_pic);
           $('#userImg').attr('src', res.data.user_pic);
@@ -186,16 +187,18 @@
     $('#btnLogout').click(function () {
       $('#myModal').modal('show');
       $('#abc').click(function () {
-        $.post('http://localhost:8000/admin/logout', function (res) {
+        obj.logout(function (res) {
           console.log(res);
           if (res.code == 200) {
             window.location.href = './login.html';
           }
+
         })
+
       })
-     $('#cba').click(function(){
-            window.location.href='./index.html';
-     })
+      $('#cba').click(function () {
+        window.location.href = './index.html';
+      })
     })
 
 
