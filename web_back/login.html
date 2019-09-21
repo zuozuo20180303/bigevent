@@ -92,7 +92,7 @@
                 }else{
                   $.post('http://localhost:8000/admin/login',{user_name:userName,password:password},function(res){
                      if(res.code==200){
-                        window.location.href='http://127.0.0.1:5500/web_back/index.html';
+                        window.location.href='http://127.0.0.1:5500/index.html';
                      }else{
                          $('#con').text('用户名或密码错误');
                       $('#myModal').modal('show');
