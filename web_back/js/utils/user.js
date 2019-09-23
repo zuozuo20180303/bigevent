@@ -23,5 +23,28 @@ var user = {
     $.get(URLIST.user_info, function(res) {
       callBack(res);
     });
-  }
+  },
+    getShow:function(callBack){
+         $.get(URLIST.wenzhang_show,function(res){
+            callBack(res);
+         
+         });
+    },
+    getadd:function(name,slug,callBack){
+           $.post(URLIST.wenzhang_add,{name:name,slug:slug},function(res){
+               callBack(res);
+           })
+    },
+    getbian:function(id,name,slug,callBack){
+            $.post(URLIST.wenzhang_bianji,{id:id,name:name,slug:slug},function(res){
+                
+                  callBack(res);
+            }) 
+    },
+     get_del:function(id,callBack){
+        $.post(URLIST.wenzhang_del,{id:id},function(res){
+             callBack(res);
+        })
+     }
 };
+  

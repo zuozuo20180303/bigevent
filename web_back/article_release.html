@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/iconfont.css">
     <link rel="stylesheet" href="css/main.css">
     <link type="text/css" rel="stylesheet" href="js/jedate/css/jedate.css">
-    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="./js/lib/jquery-1.12.4.min.js"></script>
     <script src="js/jedate/js/jedate.js"></script>
     <script src="js/tinymce/js/tinymce/tinymce.min.js"></script>
     <script src="js/tinymce/js/tinymce_setup.js"></script>
@@ -39,12 +39,12 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">文章类别：</label>
                     <div class="col-sm-4">
-                        <select class="form-control">
-                            <option>1</option>
+                        <select class="form-control" id="xiala">
+                            <!-- <option>1</option>
                             <option>2</option>
                             <option>3</option>
                             <option>4</option>
-                            <option>5</option>
+                            <option>5</option> -->
                         </select>
                     </div>
                 </div>
@@ -79,7 +79,51 @@
             </form>
         </div>
     </div>
+  <script src="./js/utils/config.js"></script>
+  <script src="./js/utils/user.js"></script>
+  <script src="./js/lib/template-web.js"></script>
+  <script id="tem" type="text/html">
+       {{each data ele}}
+         
+                            <option>{{ele.name}}</option>
+                            <!-- <option>{{ele.name}}</option>
+                            <option>{{ele.name}}</option>
+                            <option>{{ele.name}}</option>
+                            <option>{{ele.name}}</option> -->
+      
 
+
+      {{/each}}
+
+</script>
+    <script>
+          $(function(){
+             
+           user.getShow(function(res){
+                if(res.code==200){
+                    var str =template('tem',res);
+                  $('#xiala').html(str);
+                }
+              
+                 
+           });
+
+
+
+
+
+
+
+
+          })
+    
+    
+    
+    
+    
+    
+    
+    </script>
 </body>
 
 </html>
